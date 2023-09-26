@@ -154,7 +154,7 @@ function previous(){
 
 $("document").ready(function(){
 	var tot, duration = $(".duration").val();
-	tot = duration;
+	tot = localStorage.getItem("countdownTime") || duration;
 	$(window).keydown(function(event){
 
     if(event.keyCode == 116) {
@@ -233,6 +233,7 @@ function startTimer(tot, duration){
 					
 					
 				}
+			localStorage.setItem("countdownTime", tot.toString());
 			}
 	}, 1000);
 }
